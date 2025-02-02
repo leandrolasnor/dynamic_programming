@@ -15,9 +15,9 @@ class BagItems
 
   attr_reader :backpack, :items, :matrix
   def initialize(backpack: Backpack.new, items: [])
-    raise StandardError.new('Items must have a list with size high than zero.') unless items.size.positive?
+    raise StandardError.new('Items must be a list with size high than zero.') unless items.size.positive?
     @backpack = backpack
-    @items = items.sort_by!(&:weight)
+    @items = items.unshift(Item.new(weight: 0, profit: 0)).sort_by(&:weight)
     @matrix = Array.new(items.size, 0)
     @matrix.each_with_index { @matrix[_2] = Array.new(backpack.size + 1, 0) }
   end

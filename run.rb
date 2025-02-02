@@ -1,7 +1,6 @@
 require './bag_items.rb'
 
 items = []
-items << Item.new(weight: 0, profit: 0)
 items << Item.new(weight: 1, profit: 1)
 items << Item.new(weight: 3, profit: 5)
 items << Item.new(weight: 5, profit: 8)
